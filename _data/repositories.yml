@@ -1,14 +1,12 @@
 github_users:
-  - torvalds
-  - alshedivat
-
-repo_description_lines_max: 2
-
+  - Sushmoy-Nandi
+repo_description_lines_max: 3
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - Sushmoy-Nandi/Build-With-Gemma-Bangladesh
+  - Sushmoy-Nandi/myShop-AI-Gemma-4-Powered-Sales-Management
+  - Sushmoy-Nandi/Detecting-Thyroid-Cancer-Efficientnetb0
+  - Sushmoy-Nandi/niter_campus_dining
+  - Sushmoy-Nandi/Tax-Management-System
+  - Sushmoy-Nandi/U-TURN-ACCIDENT-PREVENTION-SYSTEM-USING-ARDUINO-UNO
+  - Sushmoy-Nandi/Graph-Coloring-With-DFS-Backtracking
+  - Sushmoy-Nandi/Machine-Learning-From-Scratch
