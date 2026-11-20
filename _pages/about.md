@@ -9,12 +9,18 @@ profile:
   image_circular: false
   more_info: >
     <p>Dhaka, Bangladesh</p>
-selected_papers: false
+    <p>Demo office: 555 your office number</p>
+    <p>Demo address: 123 your address street</p>
+selected_papers: true
 social: true
 announcements:
-  enabled: false
+  enabled: true
+  scrollable: true
+  limit: 5
 latest_posts:
-  enabled: false
+  enabled: true
+  scrollable: true
+  limit: 3
 ---
 
 I'm Sushmoy Nandi, a Computer Science and Engineering undergraduate at the National Institute of Textile Engineering and Research (NITER).

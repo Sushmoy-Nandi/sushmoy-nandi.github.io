@@ -30,9 +30,9 @@ Still needed from the owner:
 - [ ] Scholar/ORCID/ResearchGate links, if applicable.
 - [ ] Awards, competition results, leadership, volunteering, and language proficiency.
 - [ ] Preferred profile photo if replacing the current GitHub photo; final bio and featured-project choices.
-- [ ] Personal blog posts, teaching materials, and book lists, if these sections should appear.
+- [ ] Personal blog posts, teaching materials, and book lists to replace their demo entries.
 
-Template posts, courses, people, news, book lists, sample PDFs, and Einstein biography/citation data are excluded or replaced. PDF generation and citation updates remain manual until the remaining details are supplied. Do not re-enable a section with template content when adding personal information.
+Keep every original section and its demo content. Replace only fields backed by confirmed personal information; keep unknown fields as clearly labelled demo examples. Personal projects remain alongside the original project layouts in the Demo category. Do not remove, hide or disable a section because personal details are missing. PDF generation and citation updates remain manual until their personal inputs are supplied.
 
 ## Development
 

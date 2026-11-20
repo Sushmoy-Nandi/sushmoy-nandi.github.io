@@ -7,12 +7,13 @@ first_name: Sushmoy
 middle_name:
 last_name: Nandi
 contact_note: >
-  Connect with me on GitHub or LinkedIn.
+  GitHub, LinkedIn and LeetCode are my profiles. Other contact links are demo placeholders.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Sushmoy Nandi — CSE undergraduate at NITER, based in Dhaka, Bangladesh. Research, software projects, and competitive programming.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+  Demo images from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 keywords: Sushmoy Nandi, NITER, computer science, federated learning, explainable AI, software development, competitive programming
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 💻 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
@@ -97,7 +98,7 @@ lsi: false # produce an index for related posts
 
 # Pagination
 pagination:
-  enabled: false
+  enabled: true
 
 related_blog_posts:
   enabled: true
@@ -127,7 +128,21 @@ disqus_shortname:
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
 # Optional: Set default categories and tags for posts from each source.
-external_sources: []
+external_sources:
+  - name: medium.com
+    rss_url: https://medium.com/@al-folio/feed
+    categories:
+      - external-posts
+    tags:
+      - medium
+  - name: Google Blog
+    posts:
+      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
+        published_date: 2024-05-14
+    categories:
+      - external-posts
+    tags:
+      - google
 
 # -----------------------------------------------------------------------------
 # Newsletter
@@ -174,24 +189,6 @@ kramdown:
 # Includes & excludes
 include: ["_pages", "_scripts"]
 exclude:
-  # Keep unpersonalized theme examples out of pages, search, feeds, and downloads.
-  - _posts/
-  - _books/
-  - _news/
-  - _teachings/
-  - _pages/blog.md
-  - _pages/books.md
-  - _pages/dropdown.md
-  - _pages/news.md
-  - _pages/profiles.md
-  - _pages/teaching.md
-  - assets/bibliography/
-  - assets/html/
-  - assets/jupyter/
-  - assets/pdf/
-  - assets/plotly/
-  - assets/rendercv/rendercv_output/
-  - assets/img/prof_pic*
   - AGENTS.md
   - CLAUDE.md
   - ANALYTICS.md
@@ -285,8 +282,8 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
-display_tags: []
-display_categories: []
+display_tags: ["formatting", "images", "links", "math", "code", "blockquotes"]
+display_categories: ["external-services"]
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
@@ -387,7 +384,7 @@ imagemagick:
     - 800
     - 1400
   input_directories:
-    - assets/img/personal/
+    - assets/img/
   input_formats:
     - ".jpg"
     - ".jpeg"

@@ -1,8 +1,8 @@
 ---
 layout: page
 permalink: /publications/
-title: research
-description: Privacy-preserving machine learning, explainable AI, and medical imaging.
+title: publications
+description: Personal research and demo publication entries.
 nav: true
 nav_order: 2
 ---
@@ -20,3 +20,15 @@ This research prototype combines EfficientNetB0, recursive feature elimination, 
 I announced the acceptance of my first research paper at ICEFronT 2026, the IEEE International Conference on Engineering and Frontier Technology, on [LinkedIn](https://www.linkedin.com/in/sushmoy-nandi-737b41307/).
 
 My announcement thanks co-authors Nazmul Hossain and Farhan Kabir Sifat, and supervisor Md. Abul Basar.
+
+## Demo publications
+
+The following bibliography is the original theme demo data.
+
+{% include bib_search.liquid %}
+
+<div class="publications">
+
+{% bibliography %}
+
+</div>

@@ -2,7 +2,7 @@
 layout: profiles
 permalink: /people/
 title: people
-description: members of the lab or group
+description: Demo people and profile-layout examples.
 nav: true
 nav_order: 7
 
@@ -26,3 +26,5 @@ profiles:
       <p>123 your address street</p>
       <p>Your City, State 12345</p>
 ---
+
+> Demo people and profile-layout examples.

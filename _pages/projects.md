@@ -5,7 +5,7 @@ permalink: /projects/
 description: Software, machine learning, algorithms, and open-source contributions by Sushmoy Nandi.
 nav: true
 nav_order: 3
-display_categories: [AI and machine learning, Applications, Algorithms and open source]
+display_categories: [AI and machine learning, Applications, Algorithms and open source, Demo]
 horizontal: false
 ---
 
