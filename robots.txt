@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://sushmoy-nandi.github.io/sushmoynandi.github.io/sitemap.xml
+Sitemap: https://sushmoy-nandi.github.io/sitemap.xml
