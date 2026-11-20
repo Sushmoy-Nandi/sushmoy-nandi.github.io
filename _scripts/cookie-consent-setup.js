@@ -107,51 +107,21 @@ function initializeCookieConsent() {
       }
     },
 
-    // Callback when user accepts/rejects consent
-    onFirstConsent: function(consentData) {
-      updateConsentMode(consentData);
-    },
-
-    // Callback when user changes preferences
-    onChange: function(consentData) {
-      updateConsentMode(consentData);
-    }
+    onConsent: updateConsentMode,
+    onChange: updateConsentMode
   });
 
   /**
    * Update Google Consent Mode based on user preferences
    * This ensures Google services respect user choices
    */
-  function updateConsentMode(consentData) {
-    // Handle both callback data structures
-    var categories = consentData.categories || consentData;
-
-    // Ensure categories is an object
-    if (!categories || typeof categories !== 'object') {
-      console.warn('Invalid consent data structure:', consentData);
-      return;
-    }
-
+  function updateConsentMode() {
     gtag('consent', 'update', {
-      'analytics_storage': categories.analytics ? 'granted' : 'denied',
+      'analytics_storage': window.CookieConsent.acceptedCategory('analytics') ? 'granted' : 'denied',
       'ad_storage': 'denied',
       'functionality_storage': 'denied',
       'personalization_storage': 'denied'
     });
-
-    if (categories.analytics) {
-      console.debug('✓ Analytics consent granted - tracking enabled for all providers');
-      // Analytics scripts with data-category="analytics" will automatically run
-      // when the library re-evaluates them after this consent update
-    } else {
-      console.debug('✗ Analytics consent denied - no tracking data collected');
-      // Analytics scripts are already blocked by the library (type="text/plain")
-      // No tracking will occur for:
-      // - Cronitor RUM
-      // - Google Analytics (GA4)
-      // - OpenPanel Analytics
-      // - Pirsch Analytics
-    }
   }
 }
 

@@ -9,6 +9,9 @@ on:
       - "assets/**"
       - "_sass/**"
       - "_scripts/**"
+      - "_plugins/**"
+      - "bin/**"
+      - "tests/**"
       - "**.bib"
       - "**.html"
       - "**.js"
@@ -38,6 +41,9 @@ on:
       - "assets/**"
       - "_sass/**"
       - "_scripts/**"
+      - "_plugins/**"
+      - "bin/**"
+      - "tests/**"
       - "**.bib"
       - "**.html"
       - "**.js"
@@ -60,17 +66,27 @@ on:
       - "!INSTALL.md"
       - "!README.md"
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Render a CV", "Update Google Scholar Citations"]
+    types: [completed]
+    branches: [main, master]
 
 permissions:
   contents: write
 
 jobs:
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    concurrency:
+      group: deploy-${{ github.event.pull_request.number || github.event.workflow_run.head_branch || github.ref_name }}
+      cancel-in-progress: true
     # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
@@ -91,7 +107,10 @@ jobs:
       - name: Install and Build 🔧
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
-          pip3 install --upgrade nbconvert
+          pip3 install --upgrade nbconvert pyyaml
+          python -B -m unittest discover -s tests -p 'test_*.py'
+          node --test tests/browser-scripts.test.cjs
+          bundle exec ruby tests/external_posts_test.rb
           export JEKYLL_ENV=production
           bundle exec jekyll build
       - name: Purge unused CSS 🧹

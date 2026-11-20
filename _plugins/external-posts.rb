@@ -23,12 +23,14 @@ module ExternalPosts
     end
 
     def fetch_from_rss(site, src)
-      xml = HTTParty.get(src['rss_url']).body
-      return if xml.nil?
       begin
+        response = HTTParty.get(src['rss_url'], timeout: 15)
+        raise "HTTP #{response.code}" unless response.success?
+        xml = response.body
+        return if xml.nil?
         feed = Feedjira.parse(xml)
       rescue StandardError => e
-        puts "Error parsing RSS feed from #{src['rss_url']} - #{e.message}"
+        puts "Error fetching RSS feed from #{src['rss_url']} - #{e.message}"
         return
       end
       process_entries(site, src, feed.entries)
@@ -84,6 +86,7 @@ module ExternalPosts
       src['posts'].each do |post|
         puts "...fetching #{post['url']}"
         content = fetch_content_from_url(post['url'])
+        next if content.nil?
         content[:published] = parse_published_date(post['published_date'])
         create_document(site, src['name'], post['url'], content, src)
       end
@@ -101,7 +104,9 @@ module ExternalPosts
     end
 
     def fetch_content_from_url(url)
-      html = HTTParty.get(url).body
+      response = HTTParty.get(url, timeout: 15)
+      raise "HTTP #{response.code}" unless response.success?
+      html = response.body
       parsed_html = Nokogiri::HTML(html)
 
       title = parsed_html.at('head title')&.text.strip || ''
@@ -118,6 +123,9 @@ module ExternalPosts
         summary: description
         # Note: The published date is now added in the fetch_from_urls method.
       }
+    rescue StandardError => e
+      puts "Error fetching external post from #{url} - #{e.message}"
+      nil
     end
 
   end
